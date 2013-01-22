@@ -57,12 +57,7 @@ public class Transporter extends JavaPlugin {
         Global.pluginName = pdf.getName();
         Global.pluginVersion = pdf.getVersion();
         Global.started = false;
-
-        if (! Compatibility.setup()) {
-            Utils.severe("unable to find compatible server version, plugin is disabled");
-            setEnabled(false);
-            return;
-        }
+        Global.compatibility = new Compatibility();
 
         Global.enabled = true;
 
