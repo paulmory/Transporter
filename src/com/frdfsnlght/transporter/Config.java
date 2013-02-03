@@ -72,7 +72,6 @@ public final class Config {
         OPTIONS.add("httpProxyPort");
         OPTIONS.add("httpProxyUser");
         OPTIONS.add("httpProxyPassword");
-        OPTIONS.add("checkVersion");
         OPTIONS.add("updateMetrics");
 
         options = new Options(Config.class, OPTIONS, "trp", new OptionsListener() {
@@ -553,14 +552,6 @@ public final class Config {
     public static void setHttpProxyPassword(String s) {
         if ((s != null) && (s.equals("-") || s.equals("*"))) s = null;
         setPropertyDirect("global.httpProxy.password", s);
-    }
-
-    public static boolean getCheckVersion() {
-        return config.getBoolean("global.checkVersion", true);
-    }
-
-    public static void setCheckVersion(boolean b) {
-        setPropertyDirect("global.checkVersion", b);
     }
 
     public static boolean getUpdateMetrics() {
